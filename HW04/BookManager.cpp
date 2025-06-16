@@ -1,45 +1,42 @@
 #include "BookManager.h"
 #include "BorrowManager.h"
 
-// Ã¥ Ãß°¡ ¸Þ¼­µå
+// ì±… ì¶”ê°€ ë©”ì„œë“œ
 void BookManager::addBook(const string& title, const string& author) {
-    books.push_back(Book(title, author)); // push_back »ç¿ë
-    cout << "Ã¥ÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù: " << title << " by " << author << '\n';
+    books.push_back(Book(title, author)); // push_back ì‚¬ìš©
+    cout << "ì±…ì´ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤: " << title << " by " << author << '\n';
 }
-
-// ¸ðµç Ã¥ Ãâ·Â ¸Þ¼­µå
+// ëª¨ë“  ì±… ì¶œë ¥ ë©”ì„œë“œ
 void BookManager::displayAllBooks() const {
     if(books.empty()) {
-        cout << "ÇöÀç µî·ÏµÈ Ã¥ÀÌ ¾ø½À´Ï´Ù." << '\n';
+        cout << "í˜„ìž¬ ë“±ë¡ëœ ì±…ì´ ì—†ìŠµë‹ˆë‹¤." << '\n';
         return;
     }
 
-    cout << "ÇöÀç µµ¼­ ¸ñ·Ï:" << '\n';
-    for(size_t i = 0; i < books.size(); i++) { // ÀÏ¹ÝÀûÀÎ for¹® »ç¿ë
+    cout << "í˜„ìž¬ ë„ì„œ ëª©ë¡:" << '\n';
+    for(size_t i = 0; i < books.size(); i++) { // ì¼ë°˜ì ì¸ forë¬¸ ì‚¬ìš©
         cout << "- " << books[i].title << " by " << books[i].author << '\n';
     }
 }
-
-//Title·Î Ã¥ °Ë»ö ¸Þ¼­µå
+//Titleë¡œ ì±… ê²€ìƒ‰ ë©”ì„œë“œ
 int BookManager::searchByTitle(const string& title){
     for(int i=0; i<books.size(); ++i){
         if(books[i].title == title){
-            cout << "Ã¥ Á¤º¸: " << books[i].title << " by " << books[i].author << '\n';
+            cout << "ì±… ì •ë³´: " << books[i].title << " by " << books[i].author << '\n';
             return 1;
         }
     }
-    cout << "ÇØ´ç Á¦¸ñÀÇ Ã¥Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n";
+    cout << "í•´ë‹¹ ì œëª©ì˜ ì±…ì€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n";
     return 0;
 }
-
-//Author·Î Ã¥ °Ë»ö ¸Þ¼­µå
+//Authorë¡œ ì±… ê²€ìƒ‰ ë©”ì„œë“œ
 int BookManager::searchByAuthor(const string& author){
     for(int i=0; i<books.size(); ++i){
         if(books[i].author == author){
-            cout << "ÀúÀÚ Á¤º¸: " << books[i].title << " by " << books[i].author << '\n';
+            cout << "ì €ìž ì •ë³´: " << books[i].title << " by " << books[i].author << '\n';
             return 1;
         }
     }
-    cout << "ÇØ´ç ÀúÀÚÀÇ Ã¥Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n";
+    cout << "í•´ë‹¹ ì €ìžì˜ ì±…ì€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n";
     return 0;
 }

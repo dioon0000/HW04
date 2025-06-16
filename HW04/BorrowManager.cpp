@@ -1,30 +1,30 @@
 #include "BorrowManager.h"
 #include "BookManager.h"
-//ÇØ´ç bookÀÇ ÃÊ±â Àç°í¸¦ ¼³Á¤ÇÏ´Â ÇÔ¼ö
-//addBook µÆÀ» ¶§ initializeStock ÇÔ¼ö¸¦ ½ÇÇà
+
+//í•´ë‹¹ bookì˜ ì´ˆê¸° ì¬ê³ ë¥¼ ì„¤ì •í•˜ëŠ” ë©”ì„œë“œ
 void BorrowManager::initializeStock(Book book, int quantity){
 	stock[book.title] = quantity;
 }
-//ÇØ´ç Ã¥À» ºô¸®´Â ÇÔ¼ö (Àç°í°ªÀ» -1)
+//í•´ë‹¹ ì±…ì„ ë¹Œë¦¬ëŠ” ë©”ì„œë“œ (ì¬ê³ ê°’ì„ -1)
 void BorrowManager::borrowBook(const string& title){
-	if(stock[title] == 0) cout << "ÇØ´ç Ã¥Àº Àç°í°¡ ¸ğµÎ ¼ÒÁøµÇ¾ú½À´Ï´Ù\n";
+	if(stock[title] == 0) cout << "í•´ë‹¹ ì±…ì€ ì¬ê³ ê°€ ëª¨ë‘ ì†Œì§„ë˜ì—ˆìŠµë‹ˆë‹¤\n";
 	else {
-		cout << "À§ Ã¥À» ´ëÃâÇÏ¿´½À´Ï´Ù\n";
+		cout << "ìœ„ ì±…ì„ ëŒ€ì¶œí•˜ì˜€ìŠµë‹ˆë‹¤\n";
 		stock[title]-=1;
 	}
 }
-//ÇØ´ç Ã¥À» ¹İ³³ÇÏ´Â ÇÔ¼ö (Àç°í°ªÀ» +1)
+//í•´ë‹¹ ì±…ì„ ë°˜ë‚©í•˜ëŠ” ë©”ì„œë“œ (ì¬ê³ ê°’ì„ +1)
 void BorrowManager::returnBook(const string& title){
-	if(stock[title] == 3) cout << "ÇØ´ç Ã¥Àº Àç°í°¡ °¡µæÃ¡½À´Ï´Ù\n";
+	if(stock[title] == 3) cout << "í•´ë‹¹ ì±…ì€ ì¬ê³ ê°€ ê°€ë“ì°¼ìŠµë‹ˆë‹¤\n";
 	else {
-		cout << "À§ Ã¥À» ¹İ³³ÇÏ¿´½À´Ï´Ù\n";
+		cout << "ìœ„ ì±…ì„ ë°˜ë‚©í•˜ì˜€ìŠµë‹ˆë‹¤\n";
 		stock[title]+=1;
 	}
 }
-//stock º¯¼öÀÇ ÀúÀåµÇ¾îÀÖ´Â Ã¥°ú Àç°í·®À» Ãâ·ÂÇÏ´Â ÇÔ¼ö
+//stock ë³€ìˆ˜ì˜ ì €ì¥ë˜ì–´ìˆëŠ” ì±…ê³¼ ì¬ê³ ëŸ‰ì„ ì¶œë ¥í•˜ëŠ” ë©”ì„œë“œ
 void BorrowManager::displayStock(){
-	cout << "ÀúÀåµÇ¾îÀÖ´Â Ã¥ÀÇ Àç°í·®:\n";
+	cout << "ì €ì¥ë˜ì–´ìˆëŠ” ì±…ì˜ ì¬ê³ ëŸ‰:\n";
 	for(auto iter = stock.begin(); iter != stock.end(); iter++){
-		cout << "- " << iter->first << " Ã¥Àº " << iter->second << "±Ç ³²¾Ò½À´Ï´Ù\n";
+		cout << "- " << iter->first << " ì±…ì€ " << iter->second << "ê¶Œ ë‚¨ì•˜ìŠµë‹ˆë‹¤\n";
 	}
 }

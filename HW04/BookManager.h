@@ -7,18 +7,18 @@
 using namespace std;
 class BookManager {
 private:
-    vector<Book> books; // Ã¥ ¸ñ·Ï ÀúÀå
+    vector<Book> books; // ì±… ëª©ë¡ ì €ì¥
 public:
-    // Ã¥ Ãß°¡ ¸Ş¼­µå
+    // ì±… ì¶”ê°€ ë©”ì„œë“œ
     void addBook(const string& title, const string& author);
 
-    // ¸ğµç Ã¥ Ãâ·Â ¸Ş¼­µå
+    // ëª¨ë“  ì±… ì¶œë ¥ ë©”ì„œë“œ
     void displayAllBooks() const;
 
-    //ÇØ´ç TitleÀ» °¡Áø Ã¥ Á¤º¸¸¦ ¹İÈ¯
+    //í•´ë‹¹ Titleì„ ê°€ì§„ ì±… ì •ë³´ë¥¼ ë°˜í™˜
     int searchByTitle(const string& title);
 
-    //ÇØ´ç Author¸¦ °¡Áø Ã¥ Á¤º¸¸¦ ¹İÈ¯
+    //í•´ë‹¹ Authorë¥¼ ê°€ì§„ ì±… ì •ë³´ë¥¼ ë°˜í™˜
     int searchByAuthor(const string& author);
 
 };
